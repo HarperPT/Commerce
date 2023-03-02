@@ -4,8 +4,7 @@
             <Navigator></Navigator>
         </div>
         <div class="content">
-            content
-            <router-view></router-view>
+            <CheckoutContent></CheckoutContent>
         </div>
         <div class="footer">footer</div>
     </div>
@@ -13,9 +12,13 @@
 
 <script>
 import Navigator from "@/components/Navigator.vue";
+import Stepper from "@/components/Stepper.vue";
+import CheckoutContent from "@/components/CheckoutContent.vue";
 export default {
     components: {
-        Navigator
+        Navigator,
+        Stepper,
+        CheckoutContent
     },
     name: 'Checkout',
     data() {
@@ -29,16 +32,28 @@ export default {
 
 
 <style scoped>
-.navigator{
+.navigator {
     width: 100%;
     margin: 2% 0;
 }
 
-.content{
+/* Content */
+.content {
+    /* border: 1px solid red; */
     height: 80vh;
+    position: relative;
+    margin: 2% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.footer{
+.content>* {
+    /* border: 1px solid darkblue */
+}
+
+.footer {
     position: absolute;
     width: 100%;
     bottom: 0;

@@ -7,7 +7,21 @@ export default {
   },
   nav: {
     help: "HELP",
-    signin: "SIGN IN", 
+    sign_in: "SIGN IN", 
     lang: "Language"
   },
+  steps:{
+    my_data: "My Data",
+    payment: "Payment"
+  },
+  action: {
+    error: "Error",
+    back: "Back", 
+    pay: "Pay", 
+    continue: "Continue",
+  },
+  form:{
+    name: "Name",
+    last_name: "Last Name" 
+  }
 };

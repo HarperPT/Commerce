@@ -1,15 +1,17 @@
 import VueRouter from "vue-router";
-// import Login from "../views/Login";
 import Checkout from "@/views/Checkout";
-import HelloWorld from "@/components/HelloWorld";
+import MyData from "@/components/MyData";
+import Payment from "@/components/Payment";
+import OrderConfirm from "@/components/OrderConfirm";
 
 const routes = [
   {
     path: "/checkout",
     component: Checkout,
     children: [
-      { path: "/checkout/step-1-my-data", component: HelloWorld },
-      // { path: "/checkout/step2/:key", component: Checkout },
+      { path: "/checkout/step-1-my-data", component: MyData },
+      { path: "/checkout/step-2-payment", component: Payment },
+      { path: "/checkout/step-3-order-confirmation", component: OrderConfirm },
     ],
   },
 ];

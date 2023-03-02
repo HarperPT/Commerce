@@ -17,7 +17,7 @@
                     </li>
                     <li>
                         <img src="@/assets/img/nav-user.svg" /><a href="#">{{
-                            $t("nav.signin")
+                            $t("nav.sign_in")
                         }}</a>
                     </li>
                     <li class="subnav li-subnavbtn">
@@ -237,7 +237,7 @@ ul {
 
     .menu {
         box-sizing: border-box;
-        margin-right: 10%;
+        margin-right: 2%;
         float: right;
         display: flex;
         justify-content: flex-end;
