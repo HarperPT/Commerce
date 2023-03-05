@@ -22,5 +22,17 @@ export default {
   form:{
     name: "名稱",
     last_name: "姓名" 
-  }
+  },
+  payment:{
+    credit_card: "信用卡"
+  },
+  hint:{
+    not_found: "未知",
+    redirect_checkout: '頁面不存在, 將在3秒內自動導向付款頁面..'
+  }, 
+  checkout_content: {
+    title: "",
+    message: "",
+    img: "",
+  },
 };

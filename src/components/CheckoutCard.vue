@@ -1,6 +1,9 @@
 <template>
     <div class="checkout-card-block">
-        <div class="content-title">{{ activeIndex }} {{ $te(stepTitle) ? $t(stepTitle) : stepTitle }}</div>
+        <div class="content-title">{{ $te(stepTitle) ? $t(stepTitle) : stepTitle }}</div>
+        <div class="content-padding">
+            <slot name="content-top-icon"></slot>
+        </div>
         <div class="content-subtitle">{{ subtitle }}</div>
         <div class="content-body content-padding">
             <slot name="content-body"></slot>
@@ -21,24 +24,36 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
-    // props: {
-    //     activeStep: {
-    //         type: Number,
-    //         default: 0
-    //     },
-    // },
-    computed: {
-        ...mapGetters('step', [
-            'activeIndex',
-            'currentStep',
-            'stepTitle',
-            'subtitle',
-            'backButtonLabel',
-            'nextButtonLabel',
-        ]),
+    props: {
+        activeIndex: {
+            type: Number,
+            default: 0
+        },
+        activeStep: {
+            type: Number,
+            default: 0
+        },
+        currentStep: {
+            type: Object,
+            default: () => { }
+        },
+        stepTitle: {
+            type: String,
+            default: "",
+        },
+        subtitle: {
+            type: String,
+            default: "",
+        },
+        backButtonLabel: {
+            type: String,
+            default: "",
+        },
+        nextButtonLabel: {
+            type: String,
+            default: "",
+        },
     },
 }
 </script>
@@ -64,6 +79,7 @@ export default {
 
 .content-subtitle {
     width: auto;
+    text-align: center;
 }
 
 .content-body {

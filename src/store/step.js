@@ -1,14 +1,21 @@
-import { steps } from "@/models/index.js";
-import { NEXT_STEP, PREVIOUS_STEP } from "@/models/constant.js";
+import { COMMIT } from "@/models/constant.js";
+import { steps } from "@/models/steps.js";
 
 export const step = {
   namespaced: true,
   state: {
-    activeIndex: 1,
+    activeIndex: 0,
+    imgPath: "",
   },
   mutations: {
-    [NEXT_STEP](state, stepIndex) {
+    [COMMIT.NEXT_STEP](state, stepIndex) {
       state.activeIndex = stepIndex;
+    },
+    [COMMIT.PREVIOUS_STEP](state, stepIndex) {
+      state.activeIndex = stepIndex;
+    },
+    [COMMIT.IMG_PATH](state, path) {
+      state.imgPath = imgPath;
     },
   },
   actions: {
@@ -17,14 +24,17 @@ export const step = {
       if (stepIndex > steps.length) {
         stepIndex = steps.length;
       }
-      commit(NEXT_STEP, stepIndex);
+      commit(COMMIT.NEXT_STEP, stepIndex);
     },
     previousStep: function ({ commit, state }) {
       var stepIndex = state.activeIndex - 1;
       if (stepIndex < 0) {
         stepIndex = 0;
       }
-      commit(PREVIOUS_STEP, stepIndex);
+      commit(COMMIT.PREVIOUS_STEP, stepIndex);
+    },
+    updateImgPath: function ({ commit, state }, path) {
+      commit(COMMIT.IMG_PATH, path);
     },
   },
   getters: {
@@ -34,18 +44,24 @@ export const step = {
     currentStep(state) {
       return steps.find((step) => step.value == state.activeIndex);
     },
-    stepTitle(state, getters) {
-      console.log(getters.currentStep);
-      return getters.currentStep ? getters.currentStep.label : "action.error";
+    currentStepContent(state, getters) {
+      if (!getters.currentStep) {
+        return null;
+      }
+      const content = getters.currentStep.checkout_content;
+      return JSON.stringify(content) === "{}" ? null : content;
     },
-    subtitle(state, getters) {
-      return getters.currentStep ? getters.currentStep.subtitle : "";
+    stepTitle(state, getters) {
+      return getters.currentStep ? getters.currentStep.label : "action.error";
     },
     backButtonLabel(state, getters) {
       return getters.currentStep ? getters.currentStep.buttons[0] : "";
     },
     nextButtonLabel(state, getters) {
       return getters.currentStep ? getters.currentStep.buttons[1] : "";
+    },
+    imgPath(state, getters) {
+      return `@/assets/img/${imgPath}`;
     },
   },
 };

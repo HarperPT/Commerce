@@ -12,7 +12,7 @@ export default {
   },
   steps:{
     my_data: "My Data",
-    payment: "Payment"
+    payment: "Payment",
   },
   action: {
     error: "Error",
@@ -23,5 +23,17 @@ export default {
   form:{
     name: "Name",
     last_name: "Last Name" 
-  }
+  },
+  payment:{
+    credit_card: "Credit Card"
+  },
+  hint:{
+    not_found: "Not Found",
+    redirect_checkout: 'Page is not exist. Is going to redirect to Checkout page in 3 seconds.'
+  }, 
+  checkout_content: {
+    title: "",
+    message: "",
+    img: "",
+  },
 };

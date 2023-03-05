@@ -6,7 +6,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { steps } from "@/models/index.js"
+import { steps } from "@/models/steps.js"
 export default {
     name: "Stepper",
     data() {
@@ -19,7 +19,6 @@ export default {
             'activeIndex',
             'currentStep',
             'stepTitle',
-            'subtitle',
             'backButtonLabel',
             'nextButtonLabel',
         ]),

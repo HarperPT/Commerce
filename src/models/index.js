@@ -5,22 +5,15 @@ export const langs = [
   },
   {
     label: "CN",
-    value: "cn",
+    value: "zh_CN",
   },
 ];
 
-export const steps = [
-  {
-    label: "steps.my_data",
-    subtitle: "Please enter your personal data and press continue",
-    value: 0,
-    buttons: ["", "continue"],
-  },
-  {
-    label: "steps.payment",
-    subtitle:
-      "After making the payment you will receive a confirmation email with details of your purchase",
-    value: 1,
-    buttons: ["back", "pay"],
+export const responseKey = ["title", "message"];
+
+export class checkoutLocaleMessage {
+  constructor(title) {
+    this.title = "";
+    this.message = "";
   }
-];
+}

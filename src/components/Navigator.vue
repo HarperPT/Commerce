@@ -16,7 +16,7 @@
                         }}</a>
                     </li>
                     <li>
-                        <img src="@/assets/img/nav-user.svg" /><a href="#">{{
+                        <img src="@/assets/img/nav-user.svg" /><a href="/checkout/step-1-my-data">{{
                             $t("nav.sign_in")
                         }}</a>
                     </li>
