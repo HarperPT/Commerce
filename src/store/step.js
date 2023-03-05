@@ -38,6 +38,7 @@ export const step = {
       commit(COMMIT.UPDATE_STEP, stepIndex);
     },
     backToCheckoutIndex({ commit }) {
+      localStorage.setItem("token", "");
       commit(COMMIT.UPDATE_STEP, 0);
     },
     updateImgPath: function ({ commit, state }, path) {

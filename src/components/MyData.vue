@@ -52,6 +52,13 @@ export default {
       "nextButtonLabel",
     ]),
   },
+  mounted() {
+    if (localStorage.getItem('token') != "") {
+      const user = JSON.parse(localStorage.getItem('token'));
+      this.myData.name = user.name;
+      this.myData.lastName = user.lastName;
+    }
+  },
   methods: {
     ...mapActions({
       nextStep: "step/nextStep",
