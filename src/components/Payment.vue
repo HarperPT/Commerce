@@ -59,17 +59,6 @@ export default {
     ]),
   },
   mounted() {
-    const response = {
-      title: {
-        en: "Payment",
-        zh_CN: "帳戶資料",
-      },
-      message: {
-        en: "After making the payment you will receive a confirmation email with details of your purchase",
-        zh_CN: "付款完成後, 您會在電子郵件收到一封您的購買資訊",
-      },
-      img: "",
-    };
   },
   methods: {
     ...mapActions({

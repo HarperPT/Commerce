@@ -8,10 +8,7 @@ export const step = {
     imgPath: "",
   },
   mutations: {
-    [COMMIT.NEXT_STEP](state, stepIndex) {
-      state.activeIndex = stepIndex;
-    },
-    [COMMIT.PREVIOUS_STEP](state, stepIndex) {
+    [COMMIT.UPDATE_STEP](state, stepIndex) {
       state.activeIndex = stepIndex;
     },
     [COMMIT.IMG_PATH](state, path) {
@@ -24,14 +21,24 @@ export const step = {
       if (stepIndex > steps.length) {
         stepIndex = steps.length;
       }
-      commit(COMMIT.NEXT_STEP, stepIndex);
+      commit(COMMIT.UPDATE_STEP, stepIndex);
     },
     previousStep: function ({ commit, state }) {
       var stepIndex = state.activeIndex - 1;
       if (stepIndex < 0) {
         stepIndex = 0;
       }
-      commit(COMMIT.PREVIOUS_STEP, stepIndex);
+      commit(COMMIT.UPDATE_STEP, stepIndex);
+    },
+    previousStep: function ({ commit, state }) {
+      var stepIndex = state.activeIndex - 1;
+      if (stepIndex < 0) {
+        stepIndex = 0;
+      }
+      commit(COMMIT.UPDATE_STEP, stepIndex);
+    },
+    backToCheckoutIndex({ commit }) {
+      commit(COMMIT.UPDATE_STEP, 0);
     },
     updateImgPath: function ({ commit, state }, path) {
       commit(COMMIT.IMG_PATH, path);

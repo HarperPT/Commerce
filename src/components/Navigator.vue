@@ -3,7 +3,6 @@
         <!-- Navigation bar -->
         <header class="header">
             <!-- Logo -->
-            <!-- <a href="#" class="logo">LR</a> -->
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu" />
             <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
@@ -16,9 +15,10 @@
                         }}</a>
                     </li>
                     <li>
-                        <img src="@/assets/img/nav-user.svg" /><a href="/checkout/step-1-my-data">{{
-                            $t("nav.sign_in")
-                        }}</a>
+                        <img src="@/assets/img/nav-user.svg" /><a href="#"
+                            @click="handleRoute('/checkout/step-1-my-data')">{{
+                                $t("nav.sign_in")
+                            }}</a>
                     </li>
                     <li class="subnav li-subnavbtn">
                         <p class="subnavbtn">
@@ -52,6 +52,13 @@ export default {
         return { langs };
     },
     methods: {
+        handleRoute(path) {
+            if (this.$router.currentRoute.path == path) {
+                return
+            }
+            this.$store.dispatch('step/backToCheckoutIndex')
+            this.$router.push(path);
+        },
         handleLangs(lang) {
             this.$i18n.locale = lang;
         },

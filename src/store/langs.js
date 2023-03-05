@@ -6,6 +6,7 @@ import { COMMIT } from "@/models/constant.js";
 export const langs = {
   namespaced: true,
   state: {
+    activeLocale: 'en',
     loadedLanguages: {},
   },
   mutations: {
@@ -37,6 +38,10 @@ export const langs = {
       commit(COMMIT.LAST_LOCALE_MESSAGE, messages);
     },
   },
-  getters: {},
+  getters: {
+    activeLocale(state) {
+      return state.activeLocale;
+    },
+  },
   modules: {},
 };
