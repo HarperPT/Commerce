@@ -4,7 +4,7 @@ function resolve (dir) {
 }
 
 module.exports = {
-  publicPath: '/commerce/',
+  publicPath: '/Commerce/',
   configureWebpack: {
     resolve: {
       alias: {

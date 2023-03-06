@@ -1,5 +1,11 @@
 # commerce
 
+## Project version
+```
+node v16.13.0
+Vue2
+```
+
 ## Project setup
 ```
 npm install
